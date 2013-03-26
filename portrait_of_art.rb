@@ -37,7 +37,7 @@ complete_listings = Array.new #and an array to hold that data
 
 start_dir = Dir.pwd
 unless File::directory?( todays_date) then
-	image_loc = Dir::mkdir( todays_date, )
+	image_loc = Dir::mkdir( todays_date )
 	end
 	
 Dir.chdir( todays_date )
@@ -79,26 +79,6 @@ publish_book( get_details_from_json( todays_date + "/" + todays_date + ".json"),
 			 todays_date)
 
 
-
-
-
-
-	 
-=begin	
-# use built-in CSV class to convert array to csv string and put to file
-
-csv = File.open(Time.now.getutc.usec.to_s + ".csv","w")
-
-listings_csv = CSV.dump(complete_listings, options = { :write_headers => :true} )
-
-# the text still has lots of fugly HTML encoded chars
-h_coder = HTMLEntities.new
-decoded_csv = h_coder.decode(listings_csv)
-
-csv.puts decoded_csv
-
-csv.close	
-=end
 
 
 
